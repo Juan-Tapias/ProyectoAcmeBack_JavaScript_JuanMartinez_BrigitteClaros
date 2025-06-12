@@ -114,7 +114,7 @@ button {
   .input-container input[type="text"],
   .input-container input[type="email"],
   .input-container input[type="password"] {
-    font-size: 14px;
+    font-size: 12px;
     width: 100%;
     border: none;
     border-bottom: 2px solid #ccc;
@@ -246,4 +246,55 @@ button {
 
 .form-grid .input-container {
   flex: 0 0 calc(50% - 0.5rem);
+}
+@media (min-width: 1025px) and (max-width: 1500px) {
+  .auth-card {
+    flex-direction: column;
+    padding: 0;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  .auth-form {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    font-size: 13px;
+  }
+  .auth-form.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    opacity: 1;
+    position: relative;
+  }
+
+  .auth-form.active div{
+    margin-top: 0.5vw;
+  }
+  .input-container input[type="text"]:focus ~ .label,
+  .input-container input[type="text"]:valid ~ .label,
+  .input-container input[type="email"]:focus ~ .label,
+  .input-container input[type="email"]:valid ~ .label,
+  .input-container input[type="password"]:focus ~ .label,
+  .input-container input[type="password"]:valid ~ .label {
+    font-size: 13px;
+  }
+  #ventana-login{
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    justify-content: center;
+    text-align: center;
+    font-weight: 600;
+    z-index: 999;
+    border: 1px solid white;
+    display: none;
+    width: 20vw;
+    height: 20vw;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
 }

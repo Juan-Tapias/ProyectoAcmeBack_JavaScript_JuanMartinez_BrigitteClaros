@@ -91,7 +91,7 @@
 
 .boton-menu2 div {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /* ← cambio clave: horizontal */
     align-items: center;
     text-align: left;
     margin-top: 0.5vw;

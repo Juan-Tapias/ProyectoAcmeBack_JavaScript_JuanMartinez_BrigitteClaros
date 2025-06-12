@@ -1,0 +1,34 @@
+#ventana-confirmar{
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-weight: 600;
+    z-index: 999;
+    border: 1px solid white;
+    color: white;
+    margin-left: 40vw;
+    margin-top: -10vw;
+    display: none;
+    width: 20vw;
+    height: 20vw;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+@media print {
+    body * {
+      visibility: hidden;
+    }
+  
+    #recibo, #recibo * {
+      visibility: visible;
+    }
+  
+    #recibo {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+  }

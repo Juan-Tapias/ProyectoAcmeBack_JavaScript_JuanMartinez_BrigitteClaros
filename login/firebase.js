@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+import { getDatabase, ref, set, get, child, push } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
 // Configuración de Firebase
 const firebaseConfig = {
@@ -17,4 +17,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-export { database, ref, set, get, child };
+export { database, ref, set, get, child, push };

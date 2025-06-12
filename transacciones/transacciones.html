@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/menu/menu.css">
+    <link rel="stylesheet" href="transacciones.css">
+    <title>Transacciones</title>
+</head>
+<body>
+    <div id="items">
+        <div for="menu-toggle" class="boton-menu2" id="cont_men">
+            <div id="menu" class="menu-item" data-page="home">
+                <img src="/menu/img/app.png" alt="CASA" class="casa">
+                <br>
+                <div class="text"><span><b>Menu</b></span></div>
+            </div>
+    
+            <div id="casa" class="menu-item" data-page="home">
+                <img src="/menu/img/money.png" alt="CASA" class="casa">
+                <br>
+                <div class="text"><span><b>ACME BANK</b></span></div>
+            </div>
+        </div>
+        <div for="menu-toggle" class="oculto" style="background-color: #f8fafc;" id="cont_menu">
+            <div id="monederos" class="menu-item" data-page="monederos">
+                <img src="/menu/img/monedero.png" alt="MONEDERO">
+                <br>
+                <div class="texto"><span><b>Monederos</b></span></div>
+            </div>
+    
+            <div id="ventas" class="menu-item" data-page="ventas">
+                <img src="/menu/img/ventas.png" alt="VENTAS">
+                <br>
+                <div class="texto"><span><b>Ventas</b></span></div>
+            </div>
+    
+            <div id="inventario" class="menu-item" data-page="inventario">
+                <img src="/menu/img/inventario.png" alt="INVENTARIO">
+                <br>
+                <div class="texto"><span><b>Inventario</b></span></div>
+            </div>
+    
+            <div id="cuentas" class="menu-item" data-page="cuentas">
+                <img src="/menu/img/cobro.png" alt="COBRO">
+                <br>
+                <div class="texto"><span><b>CXC/CXP</b></span></div>
+            </div>
+    
+            <div id="personal" class="menu-item" data-page="personal">
+                <img src="/menu/img/personal.png" alt="PERSONAL">
+                <br>
+                <div class="texto"><span><b>Personal</b></span></div>
+            </div>
+    
+            <div id="configuraciones" class="menu-item" data-page="configuraciones">
+                <img src="/menu/img/configuracion.png" alt="CONFIG">
+                <br>
+                <div class="texto"><span><b>Ajustes</b></span></div>
+            </div>
+    
+            <div id="empresa" class="menu-item" data-page="empresa">
+                <img src="/menu/img/empresa.png" alt="EMPRESA">
+                <br>
+                <div class="texto"><span><b>Empresa</b></span></div>
+            </div>
+    
+            <div id="informes" class="menu-item" data-page="informes">
+                <img src="/menu/img/informes.png" alt="INFORMES">
+                <br>
+                <div class="texto"><span><b>Informes</b></span></div>
+            </div>
+        </div>
+
+        <section>
+            <div class="container">
+                <h2>Consignaciones electronicas</h2>
+                <div>
+                    <h4>Nombre:</h4>
+                    <p id="nombre"></p>
+                    <p id="cuenta"></p>
+                </div>
+                <label>Cantidad a consignar</label>
+                <input type="text" id="cantidad">
+                <br><br>
+                <button id="consignar">Consignar</button>
+                <br><br>
+
+              </div>
+              <div id="ventana-confirmar"></div>
+              <div id="ticket"></div>
+        </section>
+</body>
+<script src="/menu/menu.js"></script>
+<script type="module" src="transacciones.js"></script>
+</html>

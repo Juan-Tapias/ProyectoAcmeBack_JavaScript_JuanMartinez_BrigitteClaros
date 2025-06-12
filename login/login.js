@@ -1,4 +1,58 @@
-import { database, ref, set, get, child } from 'login.js';
+import { database, ref, set, get, child } from './firebase.js';
+
+// Selección de elementos
+const authCard = document.getElementById('auth-card');
+const loginForm = document.getElementById('login');
+const signupForm = document.getElementById('signup');
+
+const ANIMATION_DURATION = 600; 
+
+function toggleAuth(formToShow) {
+  if (!authCard || !loginForm || !signupForm) {
+    console.error('Elementos del formulario no encontrados');
+    return;
+  }
+
+  authCard.classList.add('flipping');
+
+
+  setTimeout(() => {
+    loginForm.classList.remove('active');
+    signupForm.classList.remove('active');
+    
+    if (formToShow === 'login') {
+      loginForm.classList.add('active');
+    } else {
+      signupForm.classList.add('active');
+      setTimeout(() => document.querySelector('#signup-id-type')?.focus(), 50);
+    }
+    
+    authCard.classList.remove('flipping');
+    
+  
+    document.getElementById('login-status').textContent = '';
+    document.getElementById('signup-status').textContent = '';
+  }, ANIMATION_DURATION / 2);
+}
+
+function setupAuthToggleListeners() {
+  document.querySelector('#login .toggle-auth span')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    toggleAuth('signup');
+  });
+  
+  document.querySelector('#signup .toggle-auth span')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    toggleAuth('login');
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setupAuthToggleListeners();
+});
+
+export { toggleAuth };
+window.toggleAuth = toggleAuth;
 
 window.signup = async function () {
   const idType = document.getElementById('signup-id-type').value;

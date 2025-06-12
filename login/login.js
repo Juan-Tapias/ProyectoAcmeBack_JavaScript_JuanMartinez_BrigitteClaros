@@ -66,28 +66,43 @@ window.signup = async function () {
   const city = document.getElementById('signup-city').value;
   const password = document.getElementById('signup-password').value;
 
-  const userData = {
-    idType,
-    idNumber,
-    name,
-    lastname,
-    gender,
-    phone,
-    email,
-    address,
-    city,
-    password
-  };
 
-  try {
-    await set(ref(database, 'users/' + idNumber), userData);
-    document.getElementById('signup-status').innerText = "Cuenta creada exitosamente.";
-  } catch (error) {
-    document.getElementById('signup-status').innerText = "Error: " + error.message;
+  const dbRef = ref(database);
+
+  const snapshot = await get(child(dbRef, `users/${idNumber}`));
+  
+  if (snapshot.exists()) {
+    const user = snapshot.val();
+    if (user.idNumber === idNumber) {
+      document.getElementById('signup-status').innerText = "Documento en uso";
+    }}else if (!idType || !idNumber || !name || !lastname || !gender || !phone || !email || !address || !city || !password) {
+    document.getElementById('signup-status').innerText = "Todos los campos son obligatorios.";
+    return;
+  }else{
+    const userData = {
+      idType,
+      idNumber,
+      name,
+      lastname,
+      gender,
+      phone,
+      email,
+      address,
+      city,
+      password
+    };
+  
+    try {
+      await set(ref(database, 'users/' + idNumber), userData);
+      document.getElementById('signup-status').innerText = "Cuenta creada exitosamente.";
+    } catch (error) {
+      document.getElementById('signup-status').innerText = "Error: " + error.message;
+    }
   }
 };
 
 window.login = async function () {
+  const idType = document.getElementById('type-id').value;
   const idNumber = document.getElementById('login-email').value;
   const password = document.getElementById('login-password').value;
 
@@ -96,12 +111,15 @@ window.login = async function () {
   try {
     const snapshot = await get(child(dbRef, `users/${idNumber}`));
 
+
     if (snapshot.exists()) {
       const user = snapshot.val();
-      if (user.password === password) {
+      if (user.idType !== idType) {
+        document.getElementById('login-status').innerText = "Tipo de documento incorrecto.";
+      } else if (user.password === password) {
         document.getElementById('login-status').innerText = "Inicio de sesión exitoso.";
-        
-      } else {
+        window.location.href = "index.html";
+      }else {
         document.getElementById('login-status').innerText = "Contraseña incorrecta.";
       }
     } else {
@@ -110,4 +128,6 @@ window.login = async function () {
   } catch (error) {
     document.getElementById('login-status').innerText = "Error: " + error.message;
   }
+    idNumber.value = ""
+    password.value = ""
 };

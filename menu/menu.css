@@ -79,7 +79,7 @@
 .boton-menu2 {
     border-radius: 1vw;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: row;
     float: left;
     position: relative;
@@ -88,7 +88,7 @@
 
 .boton-menu2 div {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /* ← cambio clave: horizontal */
     align-items: center;
     text-align: left;
     margin-top: 0.5vw;

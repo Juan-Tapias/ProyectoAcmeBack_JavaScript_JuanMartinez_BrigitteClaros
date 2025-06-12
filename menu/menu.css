@@ -19,7 +19,7 @@
     transition: all 0.6s ease;
 }
 .boton-menu:hover {
-    width: 11.5vw;
+    width: 25vw;
 }
 /* Botón individual con layout horizontal */
 .boton-menu div {
@@ -29,7 +29,7 @@
     text-align: left;
     margin-top: 0.5vw;
     font-size: 1.18vw;
-    width: 4vw;
+    width: 20vw;
     overflow: hidden; /* ocultar texto cuando no se hace hover */
     transition: all 0.6s ease;
     border-radius: 0.5vw;
@@ -38,16 +38,16 @@
 
 /* Estilo al hacer hover */
 .boton-menu div:hover{
-    width: 10vw;
-    box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
+    width: 20vw;
+    box-shadow: 0 0 10px rgba(42, 10, 116, 0.3);
     background-color: rgba(0, 0, 255, 0.05);
-    border-bottom: 1px solid blue;
+    border-bottom: 1px solid rgb(12, 12, 92);
 }
 
 /* Mostrar el texto al hacer hover */
 .boton-menu div:hover .texto{
     opacity: 1;
-    width: 9.5vw;
+    width: 20vw;
 }
 
 /* Imagen */

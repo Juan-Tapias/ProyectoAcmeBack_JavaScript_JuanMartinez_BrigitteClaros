@@ -1,3 +1,4 @@
+
 #items {
     display: flex;
     flex-direction: column;
@@ -15,8 +16,10 @@
     height: 40vw;
     width: 4.5vw;
     border-radius: 1vw;
-    position: relative;
+    top: 5.6vw;
+    position: fixed;
     transition: all 0.6s ease;
+    z-index: 10000;
 }
 .boton-menu:hover {
     width: 25vw;
@@ -79,7 +82,7 @@
 .boton-menu2 {
     border-radius: 1vw;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: row;
     float: left;
     position: relative;
@@ -93,7 +96,6 @@
     text-align: left;
     margin-top: 0.5vw;
     font-size: 1.18vw;
-    width: 10vw; 
     transition: all 0.6s ease;
     border-radius: 0.5vw;
     padding: 0.3vw;

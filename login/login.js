@@ -140,7 +140,8 @@ window.login = async function () {
         document.getElementById('login-status').innerText = "Tipo de documento incorrecto.";
       } else if (user.password === password) {
         document.getElementById('login-status').innerText = "Inicio de sesión exitoso.";
-        window.location.href = "/menu/menu.html";
+        sessionStorage.setItem("userData", JSON.stringify(user));
+        window.location.href = "/transacciones/transacciones.html";
       }else {
         document.getElementById('login-status').innerText = "Contraseña incorrecta.";
       }

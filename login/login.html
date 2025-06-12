@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card" id="auth-card">
+            <!-- Login Form -->
+            <section class="auth-form active" id="login">
+                <h2>Iniciar sesión</h2>
+                <div class="input-container">
+                    <input list="identificacion" id="type-id" type="text" placeholder="Tipo de identificacion" required>
+                    <!-- <label for="login-email" class="label">Tipo de identificacion</label> -->
+                    <div class="underline"></div>
+                    <datalist id="identificacion">
+                        <option value="Tarjeta de identidad (TI)"></option>
+                        <option value="Cedula de ciudadania (CC)"></option>
+                        <option value="Tarjeta de extranjería (TE)"></option>
+                        <option value="Cedula extranjería (CE)"></option>
+
+                    </datalist>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="login-email" required>
+                    <label for="login-email" class="label">Numero de identificación</label>
+                    <div class="underline"></div>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="login-password" required>
+                    <label for="login-password" class="label">Contraseña</label>
+                    <div class="underline"></div>
+                </div>
+                <button onclick="login()">Iniciar sesión</button>
+                <p class="auth-status" id="login-status"></p>
+                <p class="toggle-auth">¿No tienes cuenta? <span onclick="toggleAuth('signup')">Regístrate</span></p>
+            </section>
+
+            <!-- Signup Form -->
+            <section class="auth-form" id="signup">
+                <h2>Crear cuenta</h2>
+                <div class="form-grid">
+                  <div class="input-container">
+                    <input type="text" id="signup-id-type" list="identificacion" placeholder="Tipo de identificación" required>
+                    <div class="underline"></div>
+                  </div>
+                  <div class="input-container">
+                    <input type="text" id="signup-id-number" required>
+                    <label class="label">Número de identificación</label>
+                    <div class="underline"></div>
+                  </div>
+                  <div class="input-container">
+                    <input type="text" id="signup-name" required>
+                    <label class="label">Nombres</label>
+                    <div class="underline"></div>
+                  </div>
+                  <div class="input-container">
+                    <input type="text" id="signup-lastname" required>
+                    <label class="label">Apellidos</label>
+                    <div class="underline"></div>
+                  </div>
+                  <div class="input-container">
+                    <input type="text" id="signup-gender" required>
+                    <label class="label">Género</label>
+                    <div class="underline"></div>
+                  </div>
+                  <div class="input-container">
+                    <input type="text" id="signup-phone" required>
+                    <label class="label">Teléfono</label>
+                    <div class="underline"></div>
+                  </div>
+                  <div class="input-container">
+                    <input type="email" id="signup-email" required>
+                    <label class="label">Correo electrónico</label>
+                    <div class="underline"></div>
+                  </div>
+                  <div class="input-container">
+                    <input type="text" id="signup-address" required>
+                    <label class="label">Dirección</label>
+                    <div class="underline"></div>
+                  </div>
+                  <div class="input-container">
+                    <input type="text" id="signup-city" required>
+                    <label class="label">Ciudad</label>
+                    <div class="underline"></div>
+                  </div>
+                  <div class="input-container">
+                    <input type="password" id="signup-password" required>
+                    <label class="label">Contraseña</label>
+                    <div class="underline"></div>
+                  </div>
+                  <div class="btn">
+                    <button onclick="signup()">Registrarse</button>
+                    <p class="auth-status" id="signup-status"></p>
+                    <p class="toggle-auth">¿Ya tienes cuenta? <span onclick="toggleAuth('login')">Inicia sesión</span></p>
+                  </div>
+                </div>
+              </section>
+        </div>
+    </div>
+    <script type="module" src="firebase.js"></script>
+      <script type="module" src="login.js"></script>
+</body>
+</html>

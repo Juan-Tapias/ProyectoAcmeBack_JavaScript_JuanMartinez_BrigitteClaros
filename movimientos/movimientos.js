@@ -1,6 +1,18 @@
 import { database, ref, get } from '../login/firebase.js';
 
 document.addEventListener("DOMContentLoaded", async () => {
+    const userDatos = JSON.parse(sessionStorage.getItem("userData"));
+
+    if (!userDatos) {
+        window.location.href = "/login/login.html";
+        return;
+    }
+
+    const nombreCompleto = userDatos.name + " " + userDatos.lastname
+
+    document.getElementById("nombre").textContent = `Nombre: ${nombreCompleto}`;
+    document.getElementById("cuenta").textContent = `Cuenta: ${userDatos.numeroCuenta}`;
+    
     try {
         const userData = JSON.parse(sessionStorage.getItem("userData") || '{}');
         const id = userData.idNumber;

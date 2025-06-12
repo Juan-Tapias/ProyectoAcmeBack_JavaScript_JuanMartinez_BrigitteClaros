@@ -21,15 +21,22 @@
                 <br>
                 <div class="text"><span><b>ACME BANK</b></span></div>
             </div>
+            <div id="usuarios">
+                <img src="/menu/img/sin-perfil.png" alt="">
+                <div>
+                    <p id="nombre"></p>
+                    <p id="cuenta"></p>
+                </div>
+            </div>
         </div>
         <div for="menu-toggle" class="oculto" style="background-color: #f8fafc;" id="cont_menu">
-            <div id="monederos" class="menu-item" data-page="monederos">
+            <div onclick="consignacion()" class="menu-item" data-page="monederos">
                 <img src="/menu/img/monedero.png" alt="MONEDERO">
                 <br>
                 <div class="texto"><span><b>Consignacion Electronica</b></span></div>
             </div>
     
-            <div id="ventas" class="menu-item" data-page="ventas">
+            <div id="ventas" onclick="movimientos()" class="menu-item" data-page="ventas">
                 <img src="/menu/img/ventas.png" alt="VENTAS">
                 <br>
                 <div class="texto"><span><b>Resumen de transacciones</b></span></div>
@@ -87,6 +94,7 @@
     
     <button id="btn-imprimir">🖨️ Imprimir Resumen</button>
 
+    <script src="/menu/menu.js"></script>
     <script type="module" src="movimientos.js"></script>
 </body>
 </html>

@@ -30,7 +30,6 @@
     flex-direction: row; /* ← cambio clave: horizontal */
     align-items: center;
     text-align: left;
-    margin-top: 0.5vw;
     font-size: 1.18vw;
     width: 20vw;
     overflow: hidden; /* ocultar texto cuando no se hace hover */

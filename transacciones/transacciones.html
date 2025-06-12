@@ -15,11 +15,17 @@
                 <br>
                 <div class="text"><span><b>Menu</b></span></div>
             </div>
-    
+
             <div id="casa" class="menu-item" data-page="home">
                 <img src="/menu/img/money.png" alt="CASA" class="casa">
                 <br>
                 <div class="text"><span><b>ACME BANK</b></span></div>
+            </div>
+
+            <div>
+                <img src="/menu/img/sin-perfil.jpg" alt="">
+                <p id="nombre"></p>
+                <p id="cuenta"></p>
             </div>
         </div>
         <div for="menu-toggle" class="oculto" style="background-color: #f8fafc;" id="cont_menu">
@@ -75,18 +81,14 @@
         <section>
             <div class="container">
                 <h2>Consignaciones electronicas</h2>
-                <div>
-                    <h4>Nombre:</h4>
-                    <p id="nombre"></p>
-                    <p id="cuenta"></p>
+                <div class="input-container">
+                    <input type="text" id="cantidad">
+                    <label>Cantidad a consignar</label>
+                    <div class="linea"></div>
                 </div>
-                <label>Cantidad a consignar</label>
-                <input type="text" id="cantidad">
-                <br><br>
                 <button id="consignar">Consignar</button>
                 <br><br>
-
-              </div>
+            </div>
               <div id="ventana-confirmar"></div>
               <div id="ticket"></div>
         </section>

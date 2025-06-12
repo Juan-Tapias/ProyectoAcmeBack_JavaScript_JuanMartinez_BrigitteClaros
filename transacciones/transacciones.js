@@ -1,7 +1,5 @@
 import { database, ref, set, get} from '../login/firebase.js'
 
-let numeroP = 12300000
-
 document.addEventListener("DOMContentLoaded", async () => {
 
     const userDatos = JSON.parse(sessionStorage.getItem("userData"));
@@ -75,30 +73,34 @@ document.addEventListener("DOMContentLoaded", async () => {
         }, 5000);
         }}
 
-    function ticket(numeroCuenta){
-        const ticket = document.getElementById("ticket")
 
+    async function ticket(numeroCuenta){
+        const ticket = document.getElementById("ticket");
+    
         const html = `
-        <div id="recibo">
-            <div>RECIBO DE CONSIGNACIÓN</div>
-            <div id ="fecha"></div>
-            <div id="tipo"></div>
-            <div id="descripcion"></div>
-            <div id="cantidad"></div>
-            <div >Estado: RECIBIDO ✅</div>
-        </div>
-        <button onclick="window.print()">Imprimir Recibo</button>
-        `
-        ticket.innerHTML = html
-
-        const transKeys = Object.keys(userDatos.transaccion);
-        const ultimaKey = transKeys[transKeys.length - 1];
-        const transaccion = userDatos.transaccion[ultimaKey];
-
-        document.getElementById("fecha").textContent = `Fecha: ${transaccion.fecha}`
-        document.getElementById("tipo").textContent = `Fecha: ${transaccion.tipo}`
-        document.getElementById("descipcion").textContent = `Fecha: ${transaccion.descripcion}`
-        document.getElementById("cantidad").textContent = `Fecha: ${userDatos.transaccion.cantidad}`
+            <div id="recibo">
+                <div>RECIBO DE CONSIGNACIÓN</div>
+                <div id="fecha"></div>
+                <div id="tipo"></div>
+                <div id="descripcion"></div>
+                <div id="cantidad"></div>
+                <div>Estado: RECIBIDO ✅</div>
+            </div>
+            <button onclick="window.print()">Imprimir Recibo</button>
+        `;
+        ticket.innerHTML = html;
+    
+        const id = JSON.parse(sessionStorage.getItem("userData")).idNumber;
+        const transRef = ref(database, `users/${id}/transaccion/${numeroCuenta}`);
+        const snapshot = await get(transRef);
+        if (snapshot.exists()) {
+            const transaccion = snapshot.val();
+    
+            document.getElementById("fecha").textContent = `Fecha: ${transaccion.fecha}`;
+            document.getElementById("tipo").textContent = `Tipo: ${transaccion.tipo}`;
+            document.getElementById("descripcion").textContent = `Descripción: ${transaccion.descripcion}`;
+            document.getElementById("cantidad").textContent = `Cantidad: $${transaccion.cantidad}`;
+        } 
     }
 });
 

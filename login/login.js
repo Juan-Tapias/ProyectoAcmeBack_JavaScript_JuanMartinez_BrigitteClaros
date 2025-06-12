@@ -141,7 +141,7 @@ window.login = async function () {
       } else if (user.password === password) {
         document.getElementById('login-status').innerText = "Inicio de sesión exitoso.";
         sessionStorage.setItem("userData", JSON.stringify(user));
-        window.location.href = "/transacciones/transacciones.html";
+        window.location.href = "/movimientos/movimientos.html";
       }else {
         document.getElementById('login-status').innerText = "Contraseña incorrecta.";
       }

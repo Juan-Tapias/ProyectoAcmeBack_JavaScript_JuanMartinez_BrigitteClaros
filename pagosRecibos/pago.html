@@ -24,7 +24,7 @@
         </div>
         <div class="usuarios">
             <img src="/menu/img/sin-perfil.png" alt="">
-            <div>
+            <div class="info">
                 <p id="nombre"></p>
                 <p id="cuenta"></p>
             </div>
@@ -74,6 +74,26 @@
         </div>
     </div>
 </div>
+<section>
+    <h2>Pagos de servicios publicos</h2>
+    <label>Servicio a pagar:</label>
+    <select name="servicios" id="servicios">
+        <option value="agua">Agua</option>
+        <option value="gas">Gas Natural</option>
+        <option value="energia">Energía</option>
+        <option value="internet">Internet</option>
+    </select>
+    <br><br>
+    <label>Referencia:</label>
+    <input type="text" id="referencia">
+    <br><br>
+    <label>Valor a pagar:</label>
+    <input type="text" id="total">
+    <p id="informacion"></p>
+    <button id="pagar">Pagar</button>
+    <div id="ventana-pagos"></div>
+    <div id="ticket"></div>
+</section>
 <script src="/menu/menu.js"></script>
 <script type="module" src="pago.js"></script>
 </body>

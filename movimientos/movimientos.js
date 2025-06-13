@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const transRef = ref(database, `users/${id}/transaccion`);
         const snapshot = await get(transRef);
 
+
         if (snapshot.exists()) {
             const transaccion = snapshot.val();
             // Convertir objeto de transacciones a array y mapear los datos
@@ -40,8 +41,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             // Ordenar por fecha (más reciente primero)
             const transaccionesOrdenadas = transaccionesArray.sort((a, b) => {
-                const dateA = a.fecha ? new Date(a.fecha.split('/').reverse().join('-')) : new Date(0);
-                const dateB = b.fecha ? new Date(b.fecha.split('/').reverse().join('-')) : new Date(0);
+                const dateA = a.fecha ? new Date(a.fecha.split('/').reverse().join('-')) : new Date(0).toLocaleString();
+                const dateB = b.fecha ? new Date(b.fecha.split('/').reverse().join('-')) : new Date(0).toLocaleString();
                 return dateB - dateA;
             }).slice(0, 10); // Mostrar solo las 10 más recientes
 

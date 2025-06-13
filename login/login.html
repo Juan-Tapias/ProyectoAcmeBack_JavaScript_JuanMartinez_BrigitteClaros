@@ -39,6 +39,7 @@
                 <button onclick="login()">Iniciar sesión</button>
                 <p class="auth-status" id="login-status"></p>
                <p class="toggle-auth">¿No tienes cuenta? <span>Regístrate</span></p>
+               <p class="toggle-auth">¿Se te olvido la contraseña? <span id="show-recuperar">Cambiar Contraseña</span></p>
             </section>
 
             <!-- Signup Form -->
@@ -100,6 +101,33 @@
                     <p class="toggle-auth">¿Ya tienes cuenta? <span>Inicia sesión</span></p>
                   </div>
                 </div>
+              </section>
+              <section class="auth-form" id="recuperar">
+                <h2>Recuperacion de contraseña</h2>
+                <div class="input-container">
+                    <input list="identificacion" id="type-id-recuperar" type="text" placeholder="Tipo de identificacion" required>
+                    <div class="underline"></div>
+                    <datalist id="identificacion">
+                        <option value="Tarjeta de identidad (TI)"></option>
+                        <option value="Cedula de ciudadania (CC)"></option>
+                        <option value="Tarjeta de extranjería (TE)"></option>
+                        <option value="Cedula extranjería (CE)"></option>
+                    </datalist>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="recuperar-id" required>
+                    <label for="login-email" class="label">Numero de identificación</label>
+                    <div class="underline"></div>
+                </div>
+                <div class="input-container">
+                    <input type="email" id="recuperar-email" required>
+                    <label for="login-password" class="label">Correo</label>
+                    <div class="underline"></div>
+                </div>
+                <div id="ventana-recuperar"></div>
+                <button onclick="recuperarPassword()">Cambiar</button>
+                <p class="auth-status" id="recuperar-status"></p>
+               <p class="toggle-auth">¿Contraseña recuperada? <span id="show-login">Inicia sesion</span></p>
               </section>
         </div>
     </div>

@@ -42,7 +42,8 @@ button {
     font-weight: 600;
     letter-spacing: 2px;
     background: transparent;
-    width: 20vw;
+    min-width: 10vw;
+    max-width: 20vw;
     color: #fff;
     box-shadow: 0 0 0 0 transparent;
     -webkit-transition: all 0.2s ease-in;
@@ -247,6 +248,43 @@ button {
 .form-grid .input-container {
   flex: 0 0 calc(50% - 0.5rem);
 }
+#ventana-login{
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  z-index: 999;
+  border: 1px solid white;
+  display: none;
+  width: 20vw;
+  height: 20vw;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#ventana-recuperar{
+  margin-left: 7vw;
+  margin-top: -13vw;
+  background-color: rgba(0, 0, 0, 1);
+  position: fixed;
+  justify-content: space-evenly;
+  text-align: center;
+  flex-direction: column;
+  font-weight: 600;
+  z-index: 999;
+  border: 1px solid white;
+  display: none;
+  width: 15vw;
+  height: 15vw;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+#ventana-nueva{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
 @media (min-width: 1025px) and (max-width: 1500px) {
   .auth-card {
     flex-direction: column;

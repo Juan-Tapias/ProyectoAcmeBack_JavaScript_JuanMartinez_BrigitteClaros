@@ -122,7 +122,8 @@ window.signup = async function () {
       address,
       city,
       password,
-      numeroCuenta
+      numeroCuenta,
+      saldo: 0
     };
   
     try {

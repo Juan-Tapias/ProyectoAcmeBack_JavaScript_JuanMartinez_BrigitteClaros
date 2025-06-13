@@ -10,6 +10,9 @@ function movimientos(){
 function pagos(){
   window.location.href = "/pagosRecibos/pago.html";
 }
+function retiros(){
+  window.location.href = "/retiros/retiros.html"
+}
 document.addEventListener("DOMContentLoaded", ()=>{
   menu.addEventListener("click", () => {
     if (items.classList.contains("oculto")) {

@@ -48,3 +48,7 @@
             color: white;
             font-size: 16px;
           }
+          .usuarios{
+            display: flex;
+            width: 15vw;
+        }

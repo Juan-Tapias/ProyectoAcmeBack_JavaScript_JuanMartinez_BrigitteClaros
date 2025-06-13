@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const nombreCompleto = userDatos.name + " " + userDatos.lastname
 
-    document.getElementById("nombre").textContent = `Nombre: ${nombreCompleto}`;
+    document.getElementById("nombre").textContent = `Hola, ${nombreCompleto}`;
     document.getElementById("cuenta").textContent = `Cuenta: ${userDatos.numeroCuenta}`;
 
     const cantidad = document.getElementById("cantidad");

@@ -1,11 +1,20 @@
-import { database, ref, set, get, child } from './firebase.js';
+import { database, ref, set, get, child, update } from './firebase.js';
 
-// Selección de elementos
 const authCard = document.getElementById('auth-card');
 const loginForm = document.getElementById('login');
 const signupForm = document.getElementById('signup');
+const recuperarForm = document.getElementById('recuperar');
+
 const ANIMATION_DURATION = 600; 
 
+
+document.getElementById("show-login").addEventListener("click", function () {
+  toggleAuth('login');
+});
+
+document.getElementById("show-recuperar").addEventListener("click", function () {
+  toggleAuth('recuperar');
+});
 
 function toggleAuth(formToShow) {
   if (!authCard || !loginForm || !signupForm) {
@@ -19,14 +28,17 @@ function toggleAuth(formToShow) {
   setTimeout(() => {
     loginForm.classList.remove('active');
     signupForm.classList.remove('active');
+    recuperarForm?.classList.remove('active');
     
+
     if (formToShow === 'login') {
       loginForm.classList.add('active');
-    } else {
+    } else if (formToShow === 'signup') {
       signupForm.classList.add('active');
       setTimeout(() => document.querySelector('#signup-id-type')?.focus(), 50);
+    } else if (formToShow === 'recuperar') {
+      recuperarForm.classList.add('active');
     }
-    
     authCard.classList.remove('flipping');
     
   
@@ -37,11 +49,21 @@ function toggleAuth(formToShow) {
 
 function setupAuthToggleListeners() {
   document.querySelector('#login .toggle-auth span')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    toggleAuth('signup');
+    if (e.target.textContent.includes("Regístrate")) {
+      e.preventDefault();
+      toggleAuth('signup');
+    } else if (e.target.textContent.includes("Recuperar")) {
+      e.preventDefault();
+      toggleAuth('recuperar');
+    }
   });
-  
+
   document.querySelector('#signup .toggle-auth span')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    toggleAuth('login');
+  });
+
+  document.querySelector('#recuperar .toggle-auth span')?.addEventListener('click', (e) => {
     e.preventDefault();
     toggleAuth('login');
   });
@@ -151,8 +173,59 @@ window.login = async function () {
   } catch (error) {
     document.getElementById('login-status').innerText = "Error: " + error.message;
   }
-    idNumber.value = ""
-    password.value = ""
+};
+
+window.recuperarPassword = async function () {
+  const idType = document.getElementById('type-id-recuperar').value;
+  const idNumber = document.getElementById('recuperar-id').value;
+  const email = document.getElementById('recuperar-email').value;
+  const statusEl = document.getElementById('recuperar-status');
+  const ventana = document.getElementById("ventana-recuperar")
+
+  statusEl.innerText = "";
+
+  if (!idType || !idNumber || !email) {
+    statusEl.innerText = "Por favor, completa todos los campos.";
+    return;
+  }
+
+  const dbRef = ref(database);
+
+  try {
+    const snapshot = await get(child(dbRef, `users/${idNumber}`));
+
+
+    if (snapshot.exists()) {
+      const user = snapshot.val();
+
+      if (user.idType !== idType) {
+        statusEl.innerText = "Tipo de documento incorrecto.";
+      } else if (user.email !== email) {
+        statusEl.innerText = "El correo no coincide con nuestros registros.";
+      } else if (user.idNumber !== idNumber){
+        statusEl.innerText = "El numero de identificación no existe.";
+      }
+       else {
+        statusEl.innerText = "Usuario verificado. Ingresa tu nueva contraseña.";
+        if (ventana.style.display === "none" || ventana.style.display === ""){
+          ventana.style.display = "flex"
+            const html = `
+            <div class="input-container" id="ventana-nueva">
+            <input type="text" id="nueva-password" required>
+            <label for="login-password" class="label">Nueva Contraseña</label>
+            <div class="underline"></div>
+          </div>
+           <button onclick="changePass('${idNumber}')" id="btn-recuperar">Cambiar contraseña</button>
+          `
+          ventana.innerHTML = html
+        }
+    }
+    } else {
+      statusEl.innerText = "Usuario no encontrado.";
+    }
+  } catch (error) {
+    statusEl.innerText = "Error: " + error.message;
+  }
 };
 
 function ventana(numero){
@@ -177,3 +250,26 @@ function ventana(numero){
     }, 5000);
   }
 }
+
+window.changePass = async function (idNumber) {
+  const newPass = document.getElementById('nueva-password').value;
+  const status = document.getElementById('recuperar-status'); 
+
+  if (!newPass) {
+    status.innerText = "Por favor ingresa la nueva contraseña.";
+    return;
+  }
+
+  try {
+    await update(ref(database, `users/${idNumber}`), {
+      password: newPass
+    });
+    status.innerText = "Contraseña actualizada exitosamente.";
+
+    const ventana = document.getElementById('ventana-recuperar');
+    ventana.style.display = "none";
+    ventana.innerHTML = "";
+  } catch (error) {
+    status.innerText = "Error al cambiar la contraseña: " + error.message;
+  }
+};

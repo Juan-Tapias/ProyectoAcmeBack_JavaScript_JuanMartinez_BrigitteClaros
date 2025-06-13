@@ -7,6 +7,20 @@ const recuperarForm = document.getElementById('recuperar');
 
 const ANIMATION_DURATION = 600; 
 
+async function encriptarContraseña(contraseña) {
+  const encoder = new TextEncoder();
+  const datos = encoder.encode(contraseña);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', datos);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  return hashHex;
+}
+
+async function compararContraseña(contraseñaIngresada, contraseñaEncriptada) {
+  
+  const hash = await encriptarContraseña(contraseñaIngresada);
+  return hash === contraseñaEncriptada;
+}
 
 document.getElementById("show-login").addEventListener("click", function () {
   toggleAuth('login');
@@ -127,6 +141,7 @@ window.signup = async function () {
     };
   
     try {
+      userData.password = await encriptarContraseña(password);
       await set(ref(database, 'users/' + idNumber), userData);
       document.getElementById('signup-status').innerText = "Cuenta creada exitosamente.";
       ventana(numeroCuenta)
@@ -161,7 +176,7 @@ window.login = async function () {
       const user = snapshot.val();
       if (user.idType !== idType) {
         document.getElementById('login-status').innerText = "Tipo de documento incorrecto.";
-      } else if (user.password === password) {
+      } else if (compararContraseña(password, user.password)) {
         document.getElementById('login-status').innerText = "Inicio de sesión exitoso.";
         sessionStorage.setItem("userData", JSON.stringify(user));
         window.location.href = "/movimientos/movimientos.html";
@@ -252,15 +267,14 @@ function ventana(numero){
 }
 
 window.changePass = async function (idNumber) {
-  const newPass = document.getElementById('nueva-password').value;
+  let newPass = document.getElementById('nueva-password').value;
   const status = document.getElementById('recuperar-status'); 
 
   if (!newPass) {
     status.innerText = "Por favor ingresa la nueva contraseña.";
     return;
   }
-
-  try {
+    newPass = await encriptarContraseña(newPass);
     await update(ref(database, `users/${idNumber}`), {
       password: newPass
     });
@@ -269,7 +283,4 @@ window.changePass = async function (idNumber) {
     const ventana = document.getElementById('ventana-recuperar');
     ventana.style.display = "none";
     ventana.innerHTML = "";
-  } catch (error) {
-    status.innerText = "Error al cambiar la contraseña: " + error.message;
-  }
 };

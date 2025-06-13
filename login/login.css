@@ -335,4 +335,20 @@ button {
     height: 20vw;
     transition: opacity 0.5s ease, transform 0.5s ease;
   }
+  #ventana-recuperar{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin-left: -1vw;
+    margin-top: 5vw;
+    width: 22vw;
+    height: 22vw;
+  }
+  #ventana-nueva{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
 }

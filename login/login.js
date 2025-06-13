@@ -191,7 +191,6 @@ window.recuperarPassword = async function () {
 
   const dbRef = ref(database);
 
-  try {
     const snapshot = await get(child(dbRef, `users/${idNumber}`));
 
 
@@ -217,16 +216,16 @@ window.recuperarPassword = async function () {
           </div>
            <button onclick="changePass('${idNumber}')" id="btn-recuperar">Cambiar contraseña</button>
           `
-          ventana.innerHTML = html
+          ventana.innerHTML = html;
+          document.getElementById('type-id-recuperar').value = ""
+          document.getElementById('recuperar-id').value = ""
+          document.getElementById('recuperar-email').value = ""
         }
     }
     } else {
       statusEl.innerText = "Usuario no encontrado.";
     }
-  } catch (error) {
-    statusEl.innerText = "Error: " + error.message;
-  }
-};
+  };
 
 function ventana(numero){
   const ventana = document.getElementById("ventana-login")

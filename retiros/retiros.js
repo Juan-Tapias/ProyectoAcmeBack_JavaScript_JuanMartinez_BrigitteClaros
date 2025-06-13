@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             referencia: numeroReferencia,
             tipo: "Retiro",
             descripcion: "Retiro de dinero",
-            cantidad: cantidad,
+            cantidad: -cantidad,
             cuenta: numeroCuenta,
             nombre: nombreCompleto
         };

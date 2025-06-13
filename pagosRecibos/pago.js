@@ -7,4 +7,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
         window.location.href = "/login/login.html";
         return;
     }
+    
+    const nombreCompleto = userDatos.name + " " + userDatos.lastname
+
+    document.getElementById("nombre").textContent = `Hola, ${nombreCompleto}`;
+    document.getElementById("cuenta").textContent = `Cuenta: ${userDatos.numeroCuenta}`;
+
 })

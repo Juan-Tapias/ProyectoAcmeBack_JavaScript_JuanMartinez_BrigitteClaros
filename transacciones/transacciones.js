@@ -1,5 +1,4 @@
 import { database, ref, set, get} from '../login/firebase.js'
-
 document.addEventListener("DOMContentLoaded", async () => {
 
     const userDatos = JSON.parse(sessionStorage.getItem("userData"));

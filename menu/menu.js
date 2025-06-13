@@ -7,6 +7,9 @@ function consignacion(){
 function movimientos(){
   window.location.href = "/movimientos/movimientos.html";
 }
+function pagos(){
+  window.location.href = "/pagosRecibos/pago.html";
+}
 document.addEventListener("DOMContentLoaded", ()=>{
   menu.addEventListener("click", () => {
     if (items.classList.contains("oculto")) {

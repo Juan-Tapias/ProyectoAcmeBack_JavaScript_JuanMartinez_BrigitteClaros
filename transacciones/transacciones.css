@@ -188,10 +188,6 @@ h2 {
   font-size: 28px;
 }
 
-.usuarios{
-    display: flex;
-    width: 15vw;
-}
 div > p {
   margin: 5px 0 15px 25px;
   color: white;

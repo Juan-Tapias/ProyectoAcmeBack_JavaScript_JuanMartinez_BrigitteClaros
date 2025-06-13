@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/menu/menu.css">
+    <link rel="stylesheet" href="pago.css">
     <title>Pagos</title>
 </head>
 <body>
@@ -21,15 +22,22 @@
             <br>
             <div class="text"><span><b>ACME BANK</b></span></div>
         </div>
+        <div class="usuarios">
+            <img src="/menu/img/sin-perfil.png" alt="">
+            <div>
+                <p id="nombre"></p>
+                <p id="cuenta"></p>
+            </div>
+        </div>
     </div>
     <div for="menu-toggle" class="oculto" style="background-color: #f8fafc;" id="cont_menu">
-        <div class="menu-item" data-page="monederos">
+        <div onclick="consignacion()" class="menu-item" data-page="monederos">
             <img src="/menu/img/monedero.png" alt="MONEDERO">
             <br>
             <div class="texto"><span><b>Consignacion Electronica</b></span></div>
         </div>
 
-        <div id="ventas" class="menu-item" data-page="ventas">
+        <div id="ventas" onclick="movimientos()" class="menu-item" data-page="ventas">
             <img src="/menu/img/ventas.png" alt="VENTAS">
             <br>
             <div class="texto"><span><b>Resumen de transacciones</b></span></div>
@@ -41,7 +49,7 @@
             <div class="texto"><span><b>Retiro de dinero</b></span></div>
         </div>
 
-        <div id="cuentas" class="menu-item" data-page="cuentas">
+        <div onclick="pagos()" id="cuentas" class="menu-item" data-page="cuentas">
             <img src="/menu/img/cobro.png" alt="COBRO">
             <br>
             <div class="texto"><span><b>Pago de servicios publicos</b></span></div>
@@ -66,6 +74,7 @@
         </div>
     </div>
 </div>
+<script src="/menu/menu.js"></script>
 <script type="module" src="pago.js"></script>
 </body>
 </html>

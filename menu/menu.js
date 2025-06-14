@@ -17,6 +17,10 @@ function retiros(){
 function extracto(){
   window.location.href = "/extractos/extractos.html"
 }
+
+function dashboard(){
+  window.location.href = "/dashboard/dashboard.html"
+}
 document.addEventListener("DOMContentLoaded", ()=>{
   menu.addEventListener("click", () => {
     if (items.classList.contains("oculto")) {

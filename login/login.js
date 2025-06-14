@@ -193,7 +193,7 @@ window.login = async function () {
       } else if (compararContraseña(password, user.password)) {
         document.getElementById('login-status').innerText = "Inicio de sesión exitoso.";
         sessionStorage.setItem("userData", JSON.stringify(user));
-        window.location.href = "/movimientos/movimientos.html";
+        window.location.href = "/dashboard/dashboard.html";
       }else {
         document.getElementById('login-status').innerText = "Contraseña incorrecta.";
       }

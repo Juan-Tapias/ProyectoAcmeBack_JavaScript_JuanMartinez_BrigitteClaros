@@ -21,13 +21,6 @@
                 <br>
                 <div class="text"><span><b>ACME BANK</b></span></div>
             </div>
-            <div class="usuarios">
-                <img src="/menu/img/sin-perfil.png" alt="">
-                <div>
-                    <p id="nombre"></p>
-                    <p id="cuenta"></p>
-                </div>
-            </div>
         </div>
         <div for="menu-toggle" class="oculto" style="background-color: #f8fafc;" id="cont_menu">
             <div onclick="consignacion()" class="menu-item" data-page="monederos">
@@ -76,23 +69,30 @@
 </div>
 <div class="dashboard-container">
     <header class="dashboard-header">
-        <h1>Bienvenido a su Banca en Línea</h1>
+        <h1 id="nombre"></h1>
         <div class="user-info">
-            <p id="nombre"></p>
             <p id="cuenta"></p>
-            <p id="saldo">Saldo disponible: $<span id="saldo-disponible">0.00</span></p>
         </div>
     </header>
+    <section class="stats-section">
+        <div class="stat-card income">
+            <h3>Ingresos</h3>
+            <p id="total-ingresos">$0.00</p>
+        </div>
+        <div class="stat-card expenses">
+            <h3>Gastos</h3>
+            <p id="total-gastos">$0.00</p>
+        </div>
+        <div class="stat-card balance">
+            <h3>Saldo</h3>
+            <p id="balance-total">$0.00</p>
+        </div>
+    </section>
 
     <div class="dashboard-content">
-        <section class="quick-actions">
-            <button class="action-btn transfer">Transferir</button>
-            <button class="action-btn pay">Pagar</button>
-            <button class="action-btn deposit">Depositar</button>
-        </section>
 
         <section class="transactions-section">
-            <h2>Últimas transacciones</h2>
+            <h1>Últimas transacciones</h1>
             <div class="table-container">
                 <table id="tabla-transacciones">
                     <thead>
@@ -108,18 +108,9 @@
                 </table>
             </div>
         </section>
-
-        <section class="stats-section">
-            <div class="stat-card income">
-                <h3>Ingresos</h3>
-                <p id="total-ingresos">$0.00</p>
-            </div>
-            <div class="stat-card expenses">
-                <h3>Gastos</h3>
-                <p id="total-gastos">$0.00</p>
-            </div>
-        </section>
         <script type="module" src="dashboard.js"></script>
         <script type="module" src="/movimientos/movimientos.js"></script>
     </div>
 </div>
+</body>
+</html>

@@ -102,6 +102,19 @@ window.signup = async function () {
   const city = document.getElementById('signup-city').value;
   const password = document.getElementById('signup-password').value;
 
+
+  const fecha = new Date();
+  const opciones = {
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit'
+  };
+
+  const fechaFormateada = fecha.toLocaleString('es-ES', opciones);
+  
   const numeroCuenta = `44185${Math.floor(1000 + Math.random() * 1936)}`;
   const dbRef = ref(database);
 
@@ -137,7 +150,8 @@ window.signup = async function () {
       city,
       password,
       numeroCuenta,
-      saldo: 0
+      saldo: 0,
+      fecha: fechaFormateada
     };
   
     try {

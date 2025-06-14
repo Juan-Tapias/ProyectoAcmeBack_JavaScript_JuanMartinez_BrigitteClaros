@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/menu/menu.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <title>Extracto Bancario</title>
+</head>
+<body>
+<div id="items">
+        <div for="menu-toggle" class="boton-menu2" id="cont_men">
+            <div id="menu" class="menu-item" data-page="home">
+                <img src="/menu/img/app.png" alt="CASA" class="casa">
+                <br>
+                <div class="text"><span><b>Menu</b></span></div>
+            </div>
+    
+            <div id="casa" class="menu-item" data-page="home">
+                <img src="/menu/img/money.png" alt="CASA" class="casa">
+                <br>
+                <div class="text"><span><b>ACME BANK</b></span></div>
+            </div>
+            <div class="usuarios">
+                <img src="/menu/img/sin-perfil.png" alt="">
+                <div>
+                    <p id="nombre"></p>
+                    <p id="cuenta"></p>
+                </div>
+            </div>
+        </div>
+        <div for="menu-toggle" class="oculto" style="background-color: #f8fafc;" id="cont_menu">
+            <div onclick="consignacion()" class="menu-item" data-page="monederos">
+                <img src="/menu/img/monedero.png" alt="MONEDERO">
+                <br>
+                <div class="texto"><span><b>Consignacion Electronica</b></span></div>
+            </div>
+    
+            <div id="ventas" onclick="movimientos()" class="menu-item" data-page="ventas">
+                <img src="/menu/img/ventas.png" alt="VENTAS">
+                <br>
+                <div class="texto"><span><b>Resumen de transacciones</b></span></div>
+            </div>
+    
+            <div onclick="retiros()" id="inventario" class="menu-item" data-page="inventario">
+                <img src="/menu/img/inventario.png" alt="INVENTARIO">
+                <br>
+                <div class="texto"><span><b>Retiro de dinero</b></span></div>
+            </div>
+    
+            <div onclick="pagos()" id="cuentas" class="menu-item" data-page="cuentas">
+                <img src="/menu/img/cobro.png" alt="COBRO">
+                <br>
+                <div class="texto"><span><b>Pago de servicios publicos</b></span></div>
+            </div>
+    
+            <div onclick="extracto()" id="personal" class="menu-item" data-page="personal">
+                <img src="/menu/img/personal.png" alt="PERSONAL">
+                <br>
+                <div class="texto"><span><b>Extracto bancario</b></span></div>
+            </div>
+    
+            <div id="configuraciones" class="menu-item" data-page="configuraciones">
+                <img src="/menu/img/configuracion.png" alt="CONFIG">
+                <br>
+                <div class="texto"><span><b>Certificado bancario</b></span></div>
+            </div>
+    
+            <div id="empresa" class="menu-item" data-page="empresa">
+                <img src="/menu/img/empresa.png" alt="EMPRESA">
+                <br>
+                <div class="texto"><span><b>Cerrar sesion</b></span></div>
+            </div>
+        </div>
+    <script src="/menu/menu.js"></script>
+</div>
+<div class="dashboard-container">
+    <header class="dashboard-header">
+        <h1>Bienvenido a su Banca en Línea</h1>
+        <div class="user-info">
+            <p id="nombre"></p>
+            <p id="cuenta"></p>
+            <p id="saldo">Saldo disponible: $<span id="saldo-disponible">0.00</span></p>
+        </div>
+    </header>
+
+    <div class="dashboard-content">
+        <section class="quick-actions">
+            <button class="action-btn transfer">Transferir</button>
+            <button class="action-btn pay">Pagar</button>
+            <button class="action-btn deposit">Depositar</button>
+        </section>
+
+        <section class="transactions-section">
+            <h2>Últimas transacciones</h2>
+            <div class="table-container">
+                <table id="tabla-transacciones">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Referencia</th>
+                            <th>Tipo</th>
+                            <th>Descripción</th>
+                            <th>Monto</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="stat-card income">
+                <h3>Ingresos</h3>
+                <p id="total-ingresos">$0.00</p>
+            </div>
+            <div class="stat-card expenses">
+                <h3>Gastos</h3>
+                <p id="total-gastos">$0.00</p>
+            </div>
+        </section>
+        <script type="module" src="dashboard.js"></script>
+        <script type="module" src="/movimientos/movimientos.js"></script>
+    </div>
+</div>

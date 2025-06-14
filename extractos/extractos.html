@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/menu/menu.css">
-    <link rel="stylesheet" href="transacciones.css">
-    <title>Transacciones</title>
+    <link rel="stylesheet" href="extractos.css">
+    <title>Extracto Bancario</title>
 </head>
 <body>
-    
-    <div id="items">
+<div id="items">
         <div for="menu-toggle" class="boton-menu2" id="cont_men">
             <div id="menu" class="menu-item" data-page="home">
                 <img src="/menu/img/app.png" alt="CASA" class="casa">
                 <br>
                 <div class="text"><span><b>Menu</b></span></div>
             </div>
-
+    
             <div id="casa" class="menu-item" data-page="home">
                 <img src="/menu/img/money.png" alt="CASA" class="casa">
                 <br>
@@ -43,7 +42,6 @@
                 <div class="texto"><span><b>Resumen de transacciones</b></span></div>
             </div>
     
-
             <div onclick="retiros()" id="inventario" class="menu-item" data-page="inventario">
                 <img src="/menu/img/inventario.png" alt="INVENTARIO">
                 <br>
@@ -56,7 +54,7 @@
                 <div class="texto"><span><b>Pago de servicios publicos</b></span></div>
             </div>
     
-            <div onclick="extracto()" id="personal" class="menu-item" data-page="personal">
+            <div id="personal" class="menu-item" data-page="personal">
                 <img src="/menu/img/personal.png" alt="PERSONAL">
                 <br>
                 <div class="texto"><span><b>Extracto bancario</b></span></div>
@@ -74,22 +72,53 @@
                 <div class="texto"><span><b>Cerrar sesion</b></span></div>
             </div>
         </div>
-
-        <section>
-            <div class="container">
-                <h2>Consignaciones electronicas</h2>
-                <div class="input-container">
-                    <input type="text" id="cantidad">
-                    <label>Cantidad a consignar</label>
-                    <div class="linea"></div>
-                </div>
-                <button id="consignar">Consignar</button>
-                <br><br>
+    <script src="/menu/menu.js"></script>
+</div>
+    <div class="filter-container">
+        <h2 id="extracto-title">Extracto Bancario</h2>
+        <form id="filter-form">
+            <div>
+                <label for="year">Año:</label>
+                <select id="year" name="year" required></select>
             </div>
-              <div id="ventana-confirmar"></div>
-              <div id="ticket"></div>
-        </section>
+            <div>
+                <label for="month">Mes:</label>
+                <select id="month" name="month" required>
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+            </div>
+            <button type="submit">Generar Extracto</button>
+        </form>
+    </div>
+
+    <table id="tabla-transacciones">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Referencia</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Las transacciones se cargarán aquí -->
+        </tbody>
+    </table>
+
+    
+    <script type="module" src="extractos.js"></script>
 </body>
-<script src="/menu/menu.js"></script>
-<script type="module" src="transacciones.js"></script>
 </html>
+

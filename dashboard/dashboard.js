@@ -58,9 +58,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 };
             });
             // Actualizar la interfaz
-            ingresosElement.textContent = `$${totalIngresos.toFixed(2)}`;
+            ingresosElement.textContent = `$${totalIngresos.toLocaleString('es-CO')}`;
             balanceElement.textContent = `$${(userDatos.saldo || 0).toLocaleString('es-CO')}`;
-            gastosElement.textContent = `$${totalGastos.toFixed(2)}`;
+            gastosElement.textContent = `$${totalGastos.toLocaleString('es-CO')}`;
             
             // Aquí podrías añadir el código para mostrar las transacciones en la tabla
         } else {

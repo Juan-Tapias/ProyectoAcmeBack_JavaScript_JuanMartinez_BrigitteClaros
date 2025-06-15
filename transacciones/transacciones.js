@@ -2,6 +2,41 @@ import { database, ref, set, get, update} from '../login/firebase.js'
 
 document.addEventListener("DOMContentLoaded", async () => {
 
+    const imagen = document.getElementById("image-marketing")
+
+    function cambiarImagenConTransicion(nuevaSrc) {
+        imagen.style.opacity = 0;
+        setTimeout(() => {
+          imagen.src = nuevaSrc;
+          imagen.style.opacity = 1;
+        }, 500);
+      }
+      
+      function iniciarCicloImagenes() {
+        setTimeout(() => {
+          cambiarImagenConTransicion("img/publicidad-1.png");
+        }, 0);
+      
+        setTimeout(() => {
+          cambiarImagenConTransicion("img/publicidad-2.png");
+        }, 3500);
+      
+        setTimeout(() => {
+          cambiarImagenConTransicion("img/publicidad-3.png");
+        }, 7000);
+      
+        setTimeout(() => {
+          cambiarImagenConTransicion("img/publicidad-4.png");
+        }, 10500);
+      
+        setTimeout(() => {
+          cambiarImagenConTransicion("img/publicidad-5.png");
+        }, 14500);
+      }
+      
+      iniciarCicloImagenes();
+      
+      setInterval(iniciarCicloImagenes, 17500);
 
     const userDatos = JSON.parse(sessionStorage.getItem("userData"));
 

@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/menu/estilos-globales.css">
     <link rel="stylesheet" href="extractos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Hand+Pre:wght@400..700&display=swap" rel="stylesheet">
     <title>Extracto Bancario</title>
 </head>
 <body>
@@ -17,7 +20,7 @@
             </div>
 
             <div onclick="dashboard()" id="casa" class="menu-item" data-page="home">
-                <div class="text"><span><b>════  ACME 💸 BANK ════ </b></span></div>
+                <div class="text"><span><b>⊹⊱ACME BANK⊰⊹</b></span></div>
             </div>
             <div class="usuarios">
                 <img src="/menu/img/sin-perfil.png" alt="">
@@ -84,6 +87,7 @@
                 <label for="year">Año:</label>
                 <select id="year" name="year" required></select>
             </div>
+            <br>
             <div>
                 <label for="month">Mes:</label>
                 <select id="month" name="month" required>
@@ -101,6 +105,7 @@
                     <option value="12">Diciembre</option>
                 </select>
             </div>
+            <br>
             <button type="submit">Generar Extracto</button>
         </form>
     </div>
@@ -118,8 +123,9 @@
         <tbody>
             <!-- Las transacciones se cargarán aquí -->
         </tbody>
-        <button id="btn-imprimir" onclick="window.print()">🖨️ Imprimir Resumen</button>
     </table>
+    <br>
+    <button id="btn-imprimir" onclick="window.print()">🖨️ Imprimir Resumen</button>
 
     
     <script type="module" src="extractos.js"></script>

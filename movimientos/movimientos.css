@@ -21,10 +21,18 @@
             color: red;
         }
         @media print {
-            button {
-                display: none;
-            }
-            body {
-                font-size: 12pt;
-            }
-        }
+    body * {
+      visibility: hidden;
+    }
+  
+    #tabla-transacciones, #tabla-transacciones * {
+      visibility: visible;
+    }
+  
+    #tabla-transacciones {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+  }

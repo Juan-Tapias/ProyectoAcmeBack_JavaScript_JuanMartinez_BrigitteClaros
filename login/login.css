@@ -1,5 +1,5 @@
 :root {
-  --bg-color: #031926;
+  --bg-color: #ffffff;
   --card-bg: #062d3a;
   --primary-color: #468189;
   --primary-hover: #3b6f75;
@@ -52,7 +52,7 @@ button {
   
   button:hover {
     background: #031926;
-    box-shadow: 0 0 30px 5px #031926;
+    box-shadow: 0 0 30px 5px #556269;
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
@@ -184,7 +184,7 @@ button {
   padding: 2rem;
   border-radius: 10px;
   background: var(--card-bg);
-  box-shadow: 0 10px 30px rgba(123, 44, 191, 0.2);
+  box-shadow: 0 10px 30px rgba(16, 51, 148, 2);
 }
 
 .auth-card.flipping {

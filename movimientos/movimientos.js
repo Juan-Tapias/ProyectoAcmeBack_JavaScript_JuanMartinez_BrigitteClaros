@@ -41,10 +41,27 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             // Ordenar por fecha (más reciente primero)
             const transaccionesOrdenadas = transaccionesArray.sort((a, b) => {
-                const dateA = a.fecha ? new Date(a.fecha.split('/').reverse().join('-')) : new Date(0).toLocaleString();
-                const dateB = b.fecha ? new Date(b.fecha.split('/').reverse().join('-')) : new Date(0).toLocaleString();
-                return dateB - dateA;
-            }).slice(0, 10); // Mostrar solo las 10 más recientes
+        const parseFechaCompleta = (fechaStr) => {
+            if (!fechaStr) return new Date(0);
+            
+            const [fechaPart, horaPart = '00:00:00'] = fechaStr.split(' ');
+            const [dia, mes, anio] = fechaPart.split('/');
+            const [horas, minutos, segundos = '00'] = horaPart.split(':');
+
+            return new Date(
+                parseInt(anio),
+                parseInt(mes) - 1, // Mes en JS es 0-indexado
+                parseInt(dia),
+                parseInt(horas),
+                parseInt(minutos),
+                parseInt(segundos)
+            );
+        };
+
+        const dateA = parseFechaCompleta(a.fecha);
+        const dateB = parseFechaCompleta(b.fecha);
+        return dateB - dateA; // Orden descendente: más reciente primero
+    }).slice(0, 10); 
 
             const tbody = document.querySelector("#tabla-transacciones tbody");
             if (!tbody) {

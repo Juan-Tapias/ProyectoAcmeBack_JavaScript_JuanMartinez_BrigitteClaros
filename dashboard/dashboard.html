@@ -3,23 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/menu/menu.css">
+    <link rel="stylesheet" href="/menu/estilos-globales.css">
     <link rel="stylesheet" href="dashboard.css">
     <title>Inicio</title>
 </head>
 <body>
-<div id="items">
+    <div id="items">
         <div for="menu-toggle" class="boton-menu2" id="cont_men">
             <div id="menu" class="menu-item" data-page="home">
                 <img src="/menu/img/app.png" alt="CASA" class="casa">
                 <br>
                 <div class="text"><span><b>Menu</b></span></div>
             </div>
-    
-            <div id="casa" class="menu-item" data-page="home">
+
+            <div onclick="dashboard()" id="casa" class="menu-item" data-page="home">
                 <img src="/menu/img/money.png" alt="CASA" class="casa">
                 <br>
                 <div class="text"><span><b>ACME BANK</b></span></div>
+            </div>
+            <div class="usuarios">
+                <img src="/menu/img/sin-perfil.png" alt="">
+                <div>
+                    <p id="nombre"></p>
+                    <p id="cuenta"></p>
+                </div>
             </div>
         </div>
         <div for="menu-toggle" class="oculto" style="background-color: #f8fafc;" id="cont_menu">
@@ -35,6 +42,7 @@
                 <div class="texto"><span><b>Resumen de transacciones</b></span></div>
             </div>
     
+
             <div onclick="retiros()" id="inventario" class="menu-item" data-page="inventario">
                 <img src="/menu/img/inventario.png" alt="INVENTARIO">
                 <br>
@@ -53,13 +61,13 @@
                 <div class="texto"><span><b>Extracto bancario</b></span></div>
             </div>
     
-            <div id="configuraciones" class="menu-item" data-page="configuraciones">
+            <div onclick="certificado()" id="configuraciones" class="menu-item" data-page="configuraciones">
                 <img src="/menu/img/configuracion.png" alt="CONFIG">
                 <br>
                 <div class="texto"><span><b>Certificado bancario</b></span></div>
             </div>
     
-            <div id="empresa" class="menu-item" data-page="empresa">
+            <div onclick="cerrarSesion()" id="empresa" class="menu-item" data-page="empresa">
                 <img src="/menu/img/empresa.png" alt="EMPRESA">
                 <br>
                 <div class="texto"><span><b>Cerrar sesion</b></span></div>

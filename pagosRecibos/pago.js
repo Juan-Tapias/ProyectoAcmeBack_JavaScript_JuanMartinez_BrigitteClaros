@@ -2,12 +2,39 @@ import { database, ref, set, update} from '../login/firebase.js'
 
 document.addEventListener("DOMContentLoaded", ()=>{
     const userDatos = JSON.parse(sessionStorage.getItem("userData"));
+    const imagen = document.getElementById("image-marketing")
 
     if (!userDatos) {
         window.location.href = "/login/login.html";
         return;
     }
-    
+
+    function cambiarImagenConTransicion(nuevaSrc) {
+        imagen.style.opacity = 0;
+        setTimeout(() => {
+          imagen.src = nuevaSrc;
+          imagen.style.opacity = 1;
+        }, 500);
+      }
+      
+      function iniciarCicloImagenes() {
+        setTimeout(() => {
+          cambiarImagenConTransicion("img/seguridad1.png");
+        }, 0);
+      
+        setTimeout(() => {
+          cambiarImagenConTransicion("img/seguridad2.png");
+        }, 4000);
+      
+        setTimeout(() => {
+          cambiarImagenConTransicion("img/seguridad3.png");
+        }, 8000);
+      }
+      
+      iniciarCicloImagenes();
+      
+      setInterval(iniciarCicloImagenes, 12000);
+
     const nombreCompleto = userDatos.name + " " + userDatos.lastname
 
     document.getElementById("nombre").textContent = `Hola, ${nombreCompleto}`;
@@ -33,7 +60,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
     
         if (!servicios || !referencia || !total){
             informacion.textContent = "Todos los campos son obligatorios"
-        }else{
+        } else if (total > userDatos.saldo){
+            informacion.textContent = "No tiene saldo suficiente"
+        }
+        else{
             const saldo = userDatos.saldo
             const id = userDatos.idNumber;
             const nuevoSaldo = saldo - total;
@@ -52,14 +82,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 cantidad: `-${total}`
             }
     
-    
+            informacion.textContent = "Transferencia con exito"
+            document.getElementById("servicios").value = ""
+            document.getElementById("referencia").value = ""
+            document.getElementById("total").value = ""
             const nuevaTransRef = ref(database, `users/${id}/transaccion/${numeroReferencia}`);
             await set(nuevaTransRef, transaccion);
             ventana(numeroReferencia, total)
             ticket(total, servicios, numeroReferencia, nuevoSaldo)
-            document.getElementById("servicios").value = ""
-            document.getElementById("referencia").value = ""
-            document.getElementById("total").value = ""
         }
     })
 
@@ -113,11 +143,11 @@ function ticket(total, recibo, trans, saldo){
     const html = `
     <div id="recibo">
         <div>RECIBO DE PAGO DE SERVICIOS</div>
-        <div><p>fecha: ${fechaFormateada}</p></div>
-        <div><p>servicio pago: ${recibo}</p></div>
-        <div><p>Total pago: ${total}</p></div>
-        <div><p>Numero de transacción: ${trans}</p></div>
-        <div><p>Saldo disponible: $${saldo}</p></div>
+        <div><p><b>Fecha:</b> ${fechaFormateada}</p></div>
+        <div><p><b> Servicio pago:</b> ${recibo}</p></div>
+        <div><p><b>Total pago:</b> ${total}</p></div>
+        <div><p><b>Numero de transacción: :</b> ${trans}</p></div>
+        <div><p><b>Saldo disponible:</b>  $${saldo}</p></div>
         <div>Estado: RECIBIDO ✅</div>
     </div>
     <button onclick="window.print()">Imprimir Recibo</button>

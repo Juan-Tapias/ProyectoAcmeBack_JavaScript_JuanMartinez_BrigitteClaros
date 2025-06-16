@@ -21,6 +21,14 @@ function extracto(){
 function dashboard(){
   window.location.href = "/dashboard/dashboard.html"
 }
+function certificado(){
+  window.location.href = "/certificado/certificado.html"
+}
+function cerrarSesion() {
+  sessionStorage.setItem('mensajeLogout', 'Sesión cerrada correctamente');
+
+  window.location.href = '/login/login.html';
+}
 document.addEventListener("DOMContentLoaded", ()=>{
   menu.addEventListener("click", () => {
     if (items.classList.contains("oculto")) {

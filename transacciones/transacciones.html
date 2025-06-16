@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/menu/menu.css">
+    <link rel="stylesheet" href="/menu/estilos-globales.css">
     <link rel="stylesheet" href="transacciones.css">
     <title>Transacciones</title>
 </head>
@@ -62,38 +62,37 @@
                 <div class="texto"><span><b>Extracto bancario</b></span></div>
             </div>
     
-            <div id="configuraciones" class="menu-item" data-page="configuraciones">
+            <div onclick="certificado()" id="configuraciones" class="menu-item" data-page="configuraciones">
                 <img src="/menu/img/configuracion.png" alt="CONFIG">
                 <br>
                 <div class="texto"><span><b>Certificado bancario</b></span></div>
             </div>
     
-            <div id="empresa" class="menu-item" data-page="empresa">
+            <div onclick="cerrarSesion()" id="empresa" class="menu-item" data-page="empresa">
                 <img src="/menu/img/empresa.png" alt="EMPRESA">
                 <br>
                 <div class="texto"><span><b>Cerrar sesion</b></span></div>
             </div>
         </div>
 <section class="general">
-    <section id="marketing">
-        <div class="container-marketing">
-            <img src="img/publicidad-1.png" alt="" id="image-marketing">
-        </div>
-    </section>
     <section class="container-consignacion">
         <div class="container">
             <h1>Consignaciones electronicas</h1>
             <div class="input-container">
-                <input type="text" id="cantidad">
-                <label>Cantidad a consignar</label>
+                <input type="text" id="cantidad" required>
+                <label class="label">Cantidad a consignar</label>
                 <div class="linea"></div>
             </div>
             <button id="consignar">Consignar</button>
-            <br><br>
         </div>
           <div id="ventana-confirmar"></div>
           <div id="ticket"></div>
     </section>
+    <section id="marketing">
+        <div class="container-marketing">
+            <img src="img/publicidad-1.png" alt="" id="image-marketing">
+        </div>
+    </section> 
 </section>
 </body>
 <script src="/menu/menu.js"></script>

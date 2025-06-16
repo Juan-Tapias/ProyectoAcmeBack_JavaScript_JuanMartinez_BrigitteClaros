@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resumen de Transacciones</title>
-    <link rel="stylesheet" href="/menu/menu.css">
+    <link rel="stylesheet" href="/menu/estilos-globales.css">
     <link rel="stylesheet" href="retiros.css">
 </head>
 <body>
-<div id="items">
+    <div id="items">
         <div for="menu-toggle" class="boton-menu2" id="cont_men">
             <div id="menu" class="menu-item" data-page="home">
                 <img src="/menu/img/app.png" alt="CASA" class="casa">
                 <br>
                 <div class="text"><span><b>Menu</b></span></div>
             </div>
-    
+
             <div onclick="dashboard()" id="casa" class="menu-item" data-page="home">
                 <img src="/menu/img/money.png" alt="CASA" class="casa">
                 <br>
@@ -43,7 +43,8 @@
                 <div class="texto"><span><b>Resumen de transacciones</b></span></div>
             </div>
     
-            <div id="inventario" class="menu-item" data-page="inventario">
+
+            <div onclick="retiros()" id="inventario" class="menu-item" data-page="inventario">
                 <img src="/menu/img/inventario.png" alt="INVENTARIO">
                 <br>
                 <div class="texto"><span><b>Retiro de dinero</b></span></div>
@@ -61,13 +62,13 @@
                 <div class="texto"><span><b>Extracto bancario</b></span></div>
             </div>
     
-            <div id="configuraciones" class="menu-item" data-page="configuraciones">
+            <div onclick="certificado()" id="configuraciones" class="menu-item" data-page="configuraciones">
                 <img src="/menu/img/configuracion.png" alt="CONFIG">
                 <br>
                 <div class="texto"><span><b>Certificado bancario</b></span></div>
             </div>
     
-            <div id="empresa" class="menu-item" data-page="empresa">
+            <div onclick="cerrarSesion()" id="empresa" class="menu-item" data-page="empresa">
                 <img src="/menu/img/empresa.png" alt="EMPRESA">
                 <br>
                 <div class="texto"><span><b>Cerrar sesion</b></span></div>
@@ -75,24 +76,34 @@
         </div>
     <script src="/menu/menu.js"></script>
 </div>
-<div class="container">
-    <h2>Retiro de Dinero</h2>
-    
-    <div class="user-info">
-        <p id="nombre"></p>
-        <p id="cuenta"></p>
-    </div>
-    
-    <div class="form-group">
-        <label for="cantidad">Cantidad a retirar:</label>
-        <input type="number" id="cantidad" min="1">
-    </div>
-    
-    <button id="consignar">Retirar</button> <!-- Cambiar id a "retirar" sería mejor -->
-    
-    <div id="ventana-confirmar" style="display: none;"></div>
-    
-    <div id="ticket"></div>
+<section class="general">
+    <section>
+        <div class="container">
+            <h2>Retiro de Dinero</h2>
+            
+            <div class="user-info">
+                <p id="nombre"></p>
+                <p id="cuenta"></p>
+            </div>
+            
+            <div class="input-container">
+                <input type="text" id="cantidad" required>
+                <label for="cantidad" class="label">Cantidad a retirar:</label>
+                <div class="underline"></div>
+            </div>
+            
+            <button id="consignar">Retirar</button> 
+            
+            <div id="ventana-confirmar"></div>
+            <div id="ticket"></div>
+    </section>
+        <section id="marketing">
+            <div class="container-marketing">
+                <img src="img/seguridad1.png" alt="" id="image-marketing">
+            </div>
+        </section> 
+</section>
+
     <script type="module" src="retiros.js"></script>
 </div>
 </body>

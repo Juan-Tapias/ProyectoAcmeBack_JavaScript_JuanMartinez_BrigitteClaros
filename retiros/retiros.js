@@ -2,11 +2,42 @@ import { database, ref, set, get, update } from '../login/firebase.js';
 
 document.addEventListener("DOMContentLoaded", async () => {
     const userDatos = JSON.parse(sessionStorage.getItem("userData"));
+    const imagen = document.getElementById("image-marketing")
 
     if (!userDatos) {
         window.location.href = "/login/login.html";
         return;
     }
+
+    function cambiarImagenConTransicion(nuevaSrc) {
+        imagen.style.opacity = 0;
+        setTimeout(() => {
+          imagen.src = nuevaSrc;
+          imagen.style.opacity = 1;
+        }, 500);
+      }
+      
+      function iniciarCicloImagenes() {
+        setTimeout(() => {
+          cambiarImagenConTransicion("img/seguridad1.png");
+        }, 0);
+      
+        setTimeout(() => {
+          cambiarImagenConTransicion("img/seguridad2.png");
+        }, 4000);
+      
+        setTimeout(() => {
+          cambiarImagenConTransicion("img/seguridad3.png");
+        }, 8000);
+
+        setTimeout(() => {
+            cambiarImagenConTransicion("img/seguridad3.png");
+          }, 12000);
+      }
+      
+      iniciarCicloImagenes();
+      
+      setInterval(iniciarCicloImagenes, 16000);
 
     const nombreCompleto = userDatos.name + " " + userDatos.lastname;
     const numeroCuenta = userDatos.numeroCuenta;
@@ -100,22 +131,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     function generarTicket(transaccion) {
         const ticket = document.getElementById("ticket");
         ticket.innerHTML = `
-            <div id="recibo">
-                <h3>COMPROBANTE DE RETIRO</h3>
-                <hr>
-                <p><strong>Nombre:</strong> ${transaccion.nombre}</p>
-                <p><strong>Cuenta:</strong> ${transaccion.cuenta}</p>
-                <p><strong>Fecha:</strong> ${transaccion.fecha}</p>
-                <p><strong>Referencia:</strong> ${transaccion.referencia}</p>
-                <p><strong>Tipo:</strong> ${transaccion.tipo}</p>
-                <p><strong>Descripción:</strong> ${transaccion.descripcion}</p>
-                <hr>
-                <p><strong>Valor retirado:</strong> $${transaccion.cantidad.toLocaleString()}</p>
-                <hr>
-                <p>Estado: COMPLETADO</p>
-                <p>Este comprobante es su constancia de la transacción realizada</p>
-            </div>
-            <button onclick="window.print()" class="btn-imprimir">Imprimir Comprobante</button>
+        <div id="recibo">
+            <div>COMPROBANTE DE RETIRO</div>
+            <div id="nombre"><strong>Nombre:</strong> ${transaccion.nombre}</div>
+            <div id="cuenta"><strong>Cuenta:</strong> ${transaccion.cuenta}</div>
+            <div id="fecha"><strong>Fecha:</strong> ${transaccion.fecha}</div>
+            <div id="referencia"><strong>Referencia:</strong> ${transaccion.referencia}</div>
+            <div id="tipo"><strong>Tipo:</strong> ${transaccion.tipo}</div>
+            <div id="descripcion"><strong>Descripción:</strong> ${transaccion.descripcion}</div>
+            <div id="cantidad"><strong>Valor retirado:</strong> $${transaccion.cantidad.toLocaleString()}</div>
+            <div><strong>Estado:</strong> COMPLETADO</div>
+            <div>Este comprobante es su constancia de la transacción realizada</div>
+        </div>
+        <button onclick="window.print()" class="btn-imprimir">Imprimir Comprobante</button>
         `;
     }
 });

@@ -20,17 +20,6 @@
         .negativo {
             color: red;
         }
-        button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        button:hover {
-            background-color: #2980b9;
-        }
         @media print {
             button {
                 display: none;

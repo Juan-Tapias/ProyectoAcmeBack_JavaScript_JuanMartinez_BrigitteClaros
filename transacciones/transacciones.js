@@ -19,24 +19,20 @@ document.addEventListener("DOMContentLoaded", async () => {
       
         setTimeout(() => {
           cambiarImagenConTransicion("img/publicidad-2.png");
-        }, 3500);
+        }, 4000);
       
         setTimeout(() => {
           cambiarImagenConTransicion("img/publicidad-3.png");
-        }, 7000);
-      
-        setTimeout(() => {
-          cambiarImagenConTransicion("img/publicidad-4.png");
-        }, 10500);
+        }, 8000);
       
         setTimeout(() => {
           cambiarImagenConTransicion("img/publicidad-5.png");
-        }, 14500);
+        }, 12000);
       }
       
       iniciarCicloImagenes();
       
-      setInterval(iniciarCicloImagenes, 17500);
+      setInterval(iniciarCicloImagenes, 16000);
 
     const userDatos = JSON.parse(sessionStorage.getItem("userData"));
 

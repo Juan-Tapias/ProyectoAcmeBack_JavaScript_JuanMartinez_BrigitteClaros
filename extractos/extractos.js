@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         const saldoElement = document.getElementById("saldo");
 
         if (nombreElement && cuentaElement && saldoElement) {
-            nombreElement.textContent = `Titular: ${userDatos.name} ${userDatos.lastname}`;
-            cuentaElement.textContent = `N° Cuenta: ${formatAccountNumber(userDatos.numeroCuenta)}`;
+            nombreElement.textContent = `Hola, ${userDatos.name} ${userDatos.lastname}`;
+            cuentaElement.textContent = `Cuenta: ${formatAccountNumber(userDatos.numeroCuenta)}`;
             saldoElement.textContent = `Saldo disponible: $${userDatos.saldo.toLocaleString('es-CO')}`;
         } else {
             console.error("One or more required elements not found in DOM");

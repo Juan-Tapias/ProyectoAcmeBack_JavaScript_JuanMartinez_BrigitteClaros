@@ -10,4 +10,8 @@ document.addEventListener("DOMContentLoaded", () =>{
     
     document.getElementById("nombre").textContent = `Hola, ${nombreCompleto}`;
     document.getElementById("cuenta").textContent = `Cuenta: ${userDatos.numeroCuenta}`;
+    document.getElementById("nombre-certificado").textContent = `${nombreCompleto}`;
+    document.getElementById("id-certificado").textContent = `${userDatos.idNumber};`
+    document.getElementById("N-cuenta").textContent = `${userDatos.numeroCuenta}`;
+    document.getElementById("fecha-apertura").textContent = `${userDatos.fecha}`
 })

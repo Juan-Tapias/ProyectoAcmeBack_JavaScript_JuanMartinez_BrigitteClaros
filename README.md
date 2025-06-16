@@ -1,5 +1,6 @@
 # 🏦 Portal Transaccional – Acme Bank
 **Creadores:** Juan Martinez y Brigitte Claros
+---
 Bienvenido al repositorio del **Portal Transaccional de Acme Bank**, una aplicación web moderna que permite a los usuarios realizar y consultar transacciones bancarias de forma rápida, segura y eficiente.
 
 ---

@@ -9,3 +9,18 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+h1 {
+  color: #000000;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #1a3e72;
+  font-size: 28px;
+}
+
+@media screen and (max-width: 768px){
+  .general{
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+}

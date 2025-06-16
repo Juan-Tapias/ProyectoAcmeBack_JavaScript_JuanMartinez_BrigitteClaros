@@ -116,3 +116,28 @@
     text-align: center;
     font-size: 1.3vw;
   }
+  @media screen and (max-width: 768px){
+      h2{
+        font-size: 3.5vw;
+      }
+      #saldo{
+        font-size: 2.5vw;
+      }
+      #month, #year{
+        font-size: 2vw;
+        height: 5vw;
+      }
+    }
+    @media (max-width: 426px){
+      h2{
+        font-size: 6vw;
+      }
+      #saldo{
+        font-size: 4vw;
+      }
+      #month, #year{
+        font-size: 3vw;
+        height: 8vw;
+        width: 30vw;
+      }
+    }

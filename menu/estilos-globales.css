@@ -150,7 +150,8 @@ div > p {
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 2px;
-    width: 25vw;
+    min-width: 25vw;
+    max-width: 30vw;
     color: #fff;
     box-shadow: 0 0 0 0 transparent;
     -webkit-transition: all 0.2s ease-in;
@@ -295,6 +296,9 @@ div > p {
     border-bottom: 1px solid #eee;
 }
 
+#recibo > div > p{
+  color: black;
+}
 /* Estado del recibo */
 #recibo > div:last-child {
     font-weight: bold;
@@ -348,4 +352,107 @@ div > p {
 #image-marketing {
   border-radius: 5vw;
   box-shadow: 0 10px 30px rgba(16, 51, 148, 2);
+}
+
+@media (max-width: 768px) {
+  #ventana-confirmar{
+    top: 50vw;
+    width: 40vw;
+    height: 35vw;
+  }
+  #ventana-confirmar > div > p{
+    font-size: 2.7vw;
+}
+.container-marketing{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+div > p {
+  margin: 5px;
+  color: white;
+  font-size: 13px;
+}
+.boton-menu2 div{
+  font-size: 1.6vw;
+}
+.boton-menu2 img{
+  width: 4vw;
+}
+.boton-menu{
+  margin-top: 3vw;
+  width: 6vw;
+  height: 60vw;
+}
+.boton-menu:hover{
+  width: 30vw;
+}
+.boton-menu img {
+  width: 4vw;
+}
+.boton-menu div{
+  font-size: 2vw;
+  width: 30vw;
+}
+.boton-menu div:hover{
+  width: 30vw;
+}
+.texto {
+    white-space: normal;
+    transition: none;
+}
+}
+@media (max-width: 426px){
+  #ventana-confirmar{
+    top: 70vw;
+    left: 20vw;
+    width: 60vw;
+    height: 55vw;
+  }
+  #ventana-confirmar > div > p{
+    font-size: 4vw;
+}
+.container-marketing{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+#recibo {
+  width: 50vw;
+  font-size: 4vw;
+}
+
+div > p {
+  margin: 5px;
+  color: white;
+  font-size: 13px;
+}
+.boton-menu2 div{
+  font-size: 2.7vw;
+}
+.boton-menu2 img{
+  width: 9vw;
+}
+.boton-menu{
+  margin-top: 10vw;
+  width: 10vw;
+  height: 90vw;
+}
+.boton-menu:hover{
+  width: 30vw;
+}
+.boton-menu img {
+  width: 8vw;
+}
+.boton-menu div{
+  font-size: 3vw;
+  width: 30vw;
+}
+.boton-menu div:hover{
+  width: 30vw;
+}
+.texto {
+    white-space: normal;
+    transition: none;
+}
 }

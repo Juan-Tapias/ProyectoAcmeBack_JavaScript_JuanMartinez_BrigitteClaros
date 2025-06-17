@@ -78,22 +78,23 @@
 </div>
     <h1>Resumen de Transacciones</h1>
     <p>Últimas 10 transacciones</p>
-    
-    <table id="tabla-transacciones">
-        <thead>
-            <tr>
-                <th>Fecha</th>
-                <th>Referencia</th>
-                <th>Tipo</th>
-                <th>Descripción</th>
-                <th>Valor ($)</th>
-            </tr>
-        </thead>
-        <tbody id="tabla">
-            <!-- Datos se cargarán con JavaScript -->
-        </tbody>
-    </table>
-    
+    <div class="tabla">
+        <table id="tabla-transacciones">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Referencia</th>
+                    <th>Tipo</th>
+                    <th>Descripción</th>
+                    <th>Valor ($)</th>
+                </tr>
+            </thead>
+            <tbody id="tabla">
+                <!-- Datos se cargarán con JavaScript -->
+            </tbody>
+        </table>    
+    </div>
+
     <button id="btn-imprimir" onclick="window.print()">🖨️ Imprimir Resumen</button>
 
     <script type="module" src="movimientos.js"></script>

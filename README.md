@@ -11,6 +11,17 @@ Es una plataforma digital donde los usuarios pueden consultar su historial de mo
 El portal busca reemplazar las complejidades de los sistemas bancarios tradicionales por una interfaz limpia, moderna y orientada al usuario final.
 
 ---
+# 🚀 Instrucciones para ejecutar el proyecto
+
+Para poder usar correctamente este repositorio del **Portal Transaccional de Acme Bank**, sigue estos pasos:
+
+### 📥 1. Clonar el repositorio
+
+Abre tu terminal y ejecuta el siguiente comando:
+
+```bash
+git clone https://github.com/Juan-Tapias/ProyectoAcmeBack_JavaScript_JuanMartinez_BrigitteClaros.git
+```
 
 ## 🎯 Objetivo
 

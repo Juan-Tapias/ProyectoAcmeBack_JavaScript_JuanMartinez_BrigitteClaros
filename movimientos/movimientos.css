@@ -25,6 +25,9 @@
         .negativo {
             color: red;
         }
+        .tabla{
+          overflow-x: auto;
+        }
         @media print {
     body * {
       visibility: hidden;
@@ -41,9 +44,12 @@
       width: 100%;
     }
   }
-  @media screen and (max-width: 768px){
+  @media (max-width: 768px){
       p{
         font-size: 3vw;
+      }
+      table{
+        width: 87%;
       }
   }
   @media(max-width: 456px){

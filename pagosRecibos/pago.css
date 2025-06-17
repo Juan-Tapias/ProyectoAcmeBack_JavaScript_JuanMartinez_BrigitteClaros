@@ -1,5 +1,5 @@
 
-.principal{
+.general{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -46,7 +46,6 @@ h1 {
   border-color: #0d2c54;
   box-shadow: 0 0 0 3px rgba(13, 44, 84, 0.3);
 }
-
 @media (max-width: 768px){
   .general{
     flex-direction: column-reverse;

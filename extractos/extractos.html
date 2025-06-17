@@ -109,21 +109,22 @@
             <button type="submit">Generar Extracto</button>
         </form>
     </div>
-
-    <table id="tabla-transacciones">
-        <thead>
-            <tr>
-                <th>Fecha</th>
-                <th>Referencia</th>
-                <th>Tipo</th>
-                <th>Descripción</th>
-                <th>Valor</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Las transacciones se cargarán aquí -->
-        </tbody>
-    </table>
+    <div class="tabla">
+        <table id="tabla-transacciones">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Referencia</th>
+                    <th>Tipo</th>
+                    <th>Descripción</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Las transacciones se cargarán aquí -->
+            </tbody>
+        </table>
+    </div>
     <br>
     <button id="btn-imprimir" onclick="window.print()">🖨️ Imprimir Resumen</button>
 

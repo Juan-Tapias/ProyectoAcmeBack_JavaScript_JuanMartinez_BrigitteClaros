@@ -32,6 +32,9 @@
             border-collapse: collapse;
             margin-top: 20px;
         }
+        .tabla{
+          overflow-x: auto;
+        }
         th {
             background-color: #3498db;
             color: white;

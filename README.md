@@ -53,3 +53,5 @@ El objetivo principal del Portal Transaccional es empoderar a los usuarios de Ac
 - 🌐 Interfaz intuitiva y responsiva (mobile-friendly).
 
 ---
+
+## Figma del proyecto : https://www.figma.com/design/elwwk6wsEmKs4cP2K5hTOJ/Proyeco?node-id=1-3&t=3xFMPluT90LwWCZF-1
